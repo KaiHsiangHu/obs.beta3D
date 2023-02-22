@@ -1074,7 +1074,6 @@ obsbeta3D = function(data, diversity = 'TD', q = seq(0, 2, 0.25), datatype = 'ab
 #' 
 #' @param output the output from obsbeta3D
 #' @param type selection of plot type : \code{type = 'B'} for plotting the gamma, alpha, and beta diversity ; \code{type = 'D'} for plotting 4 turnover dissimilarities.
-#' @param measurement character indicating the label of y-axis.
 #' @param transp a value between 0 and 1 controlling transparency. \code{transp = 0} is completely transparent, default is 0.4.
 #' 
 #' @return a figure for Beta diversity or dissimilarity diversity.
@@ -1150,7 +1149,7 @@ obsbeta3D = function(data, diversity = 'TD', q = seq(0, 2, 0.25), datatype = 'ab
 #' ggobsbeta3D(output8, type = 'D')
 #' 
 #' @export
-ggobsbeta3D = function(output, type = c('B', 'D')){
+ggobsbeta3D = function(output, type = c('B', 'D'), transp = 0.4){
   
   if (type == 'B'){
     
@@ -1186,7 +1185,7 @@ ggobsbeta3D = function(output, type = c('B', 'D')){
   
   ggplot(data = df, aes(x = Order.q, y = Diversity, col = Region)) +
     geom_line(aes(x = Order.q, y = Diversity, col = Region), size=1.2) + 
-    geom_ribbon(aes(ymin = LCL, ymax = UCL, fill = Region, col = NULL), alpha = 0.4) + 
+    geom_ribbon(aes(ymin = LCL, ymax = UCL, fill = Region, col = NULL), alpha = transp) + 
     scale_colour_manual(values = cbPalette) + 
     scale_fill_manual(values = cbPalette) + 
     facet_grid(div_type ~ ., scales = 'free_y') +

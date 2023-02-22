@@ -4,14 +4,12 @@
 \alias{ggobsbeta3D}
 \title{ggplot for beta diversity}
 \usage{
-ggobsbeta3D(output, type = c("B", "D"))
+ggobsbeta3D(output, type = c("B", "D"), transp = 0.4)
 }
 \arguments{
 \item{output}{the output from obsbeta3D}
 
 \item{type}{selection of plot type : \code{type = 'B'} for plotting the gamma, alpha, and beta diversity ; \code{type = 'D'} for plotting 4 turnover dissimilarities.}
-
-\item{measurement}{character indicating the label of y-axis.}
 
 \item{transp}{a value between 0 and 1 controlling transparency. \code{transp = 0} is completely transparent, default is 0.4.}
 }
